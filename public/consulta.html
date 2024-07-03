@@ -7,7 +7,7 @@
   <title>Propiedades consultas</title>
   <style>
     body {
-      background-color: black;
+      background-color:black;
     }
 
     h1 {
@@ -86,7 +86,8 @@
           console.log("ruta de la imagen", imageElement.src);
           imageElement.alt = `Propiedad ${property.id_propiedad}`;
         } else {
-          imageElement.src = ""; // No establecer una imagen, dejar vacío
+          imageElement.setAttribute('alt', 'Foto de la propiedad');
+  
           imageElement.alt = "Foto de la Propiedad";
         }
 
