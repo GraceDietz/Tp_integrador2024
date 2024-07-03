@@ -1,58 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Propiedades consultas</title>
   <style>
-    body{
+    body {
       background-color: black;
     }
+
     h1 {
       font-size: 30px;
-      
-      text-align:center;
-      color:darkgoldenrod;
+
+      text-align: center;
+      color: darkgoldenrod;
     }
-    
+
 
     .property-card {
       border: 1px solid rgb(17, 10, 0);
       padding: 10px;
       margin-bottom: 10px;
       max-width: 30%;
-     
+
     }
+
     .property-card img {
       max-width: 100%;
       height: auto;
     }
-    .contenedor-prop{
+
+    .contenedor-prop {
       background-color: rgb(131, 106, 74);
-      display:flex;
+      display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       max-width: 100%;
     }
-    .contenedor-prop > * {
-      flex-basis: calc(28.28% - 10px); /* Ajusta el ancho de cada hijo */
-      margin: 10px; /* Agrega un margen entre los hijos */
+
+    .contenedor-prop>* {
+      flex-basis: calc(28.28% - 10px);
+      /* Ajusta el ancho de cada hijo */
+      margin: 10px;
+      /* Agrega un margen entre los hijos */
     }
+
     .price-style {
       font-weight: bold;
-      
+
     }
   </style>
 </head>
+
 <body>
   <h1>Propiedades disponibles</h1>
   <div id="property-list" class="contenedor-prop"></div>
 
   <script>
-
     const url = new URL(window.location.href);
 
-    console.log("la url es:",url)
+    console.log("la url es:", url)
 
     // Obtener el elemento donde se mostrarán las propiedades
     const propertyList = document.getElementById('property-list');
@@ -69,10 +77,19 @@
         propertyCard.classList.add('property-card');
 
         // Crear la imagen
+
+
+        // Crear la imagen
         const imageElement = document.createElement('img');
-        imageElement.src = "/public/img/"+property.ruta_imagen;
-        console.log("ruta de la imagen",imageElement.src)
-        imageElement.alt = `Propiedad ${property.id_propiedad}`;
+        if (property.ruta_imagen) {
+          imageElement.src = "/public/img/" + property.ruta_imagen;
+          console.log("ruta de la imagen", imageElement.src);
+          imageElement.alt = `Propiedad ${property.id_propiedad}`;
+        } else {
+          imageElement.src = ""; // No establecer una imagen, dejar vacío
+          imageElement.alt = "Foto de la Propiedad";
+        }
+
 
         // Crear los detalles de la propiedad
         const locationElement = document.createElement('p');
@@ -102,12 +119,13 @@
 
     // Obtener las propiedades desde la API
     fetch('http://localhost:3000/propiedades')
-    
-  
+
+
       .then(response => response.json())
-      
+
       .then(data => displayProperties(data))
       .catch(error => console.error('Error:', error));
   </script>
 </body>
+
 </html>

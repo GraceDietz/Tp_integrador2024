@@ -86,7 +86,7 @@ const sql_query="SELECT p.id_propiedad,p.descripcion,p.precio,p.ubicacion,p.metr
 
 
     //const consulta='SELECT * FROM propiedades'
-    const [rows] = await connection.query(sql_query);
+    const [rows] = await db.query(sql_query);
     console.log([rows]);
     res.json(rows);
     connection.release()
