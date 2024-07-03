@@ -1,0 +1,20 @@
+{
+  "name": "proyecto_inmobiliaria",
+  "version": "1.0.0",
+  "description": "¡Bienvenidos a Inmobiliaria Codo! Somos una inmobiliaria dedicada a ayudarte a encontrar la propiedad perfecta en. Ya sea que estés buscando comprar, vender o alquilar, estamos aquí para guiarte en cada paso del camino.\r Nos especializamos en encontrar el hogar perfecto para ti. Con años de experiencia en el sector, nuestro equipo de profesionales está comprometido en brindarte el mejor servicio y asesoría",
+  "main": "index.mjs",
+  "type": "module",
+  "scripts": {
+    "start": "node index.mjs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mysql2": "^3.10.2"
+  }
+}
